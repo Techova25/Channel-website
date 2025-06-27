@@ -10,7 +10,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: white;
+  background-color: rgb(49, 45, 45);
 }
 
 html[dir="rtl"] body {
