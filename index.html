@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Techova</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Prism CSS for Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="logo-container"></div>
+    <nav class="navigation">
+        <ul>
+            <li><a href="#aboutme" data-key="nav_about_me">About me</a></li>
+            <li><a href="#resources" data-key="nav_resources">Channel Resources</a></li>
+            <li><a href="#contactme" data-key="nav_contact_me">Contact me</a></li>
+        </ul>
+    </nav>
+    <div class="header-actions">
+        <button class="language-switcher" id="lang-toggle">
+            <span class="language-icon" aria-hidden="true">🌍</span>
+            <span class="language-text" data-key="lang_toggle_text">العربية</span>
+        </button>
+        <button class="gemini-button" id="ask-gemini-btn" data-key="nav_ask_gemini">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 1 9 9 9 9 0 0 1-9 9 9 9 0 0 1-9-9 9 9 0 0 1 9-9z"/><path d="M10 3.4a9 9 0 0 1 4 0"/><path d="M20.6 14a9 9 0 0 1 0-4"/><path d="M3.4 10a9 9 0 0 1 0 4"/><path d="M12 21a9 9 0 0 1 0-18"/></svg>
+            <span>Ask Gemini</span>
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <h1 class="name" data-key="hero_name">I'm Carlos</h1>
+        <h2 class="title" data-key="hero_title">Software Engineer</h2>
+        <img class="softwarelogo" src="images/codes.jpeg" alt="A close-up of computer code">
+    </section>
+
+    <section class="resources" id="resources">
+         <h2 class="section-title" data-key="resources_title">Channel Resources</h2>
+         <p class="section-subtitle" data-key="resources_subtitle">Latest videos, code, and links from the channel, updated automatically.</p>
+         <div id="calendar-events-container" class="events-grid">
+            <!-- Calendar events will be injected here by JavaScript -->
+            <div class="loader"></div> <!-- Loading indicator -->
+         </div>
+    </section>
+
+    <section class="aboutme" id="aboutme">
+        <div class="section-content">
+            <img src="images/about me.jpg" class="section-image" alt="A person working on a laptop">
+            <div class="text-content">
+                <h2 class="section-title" data-key="about_me_title">About me</h2>
+                <p data-key="about_me_p">Hey! I'm Carlos — a 13-year-old who’s passionate about programming, learning new technologies, and creating smart digital ideas. I enjoy exploring free Artificial Intelligence tools and trying to change every thing in using the devices from complex to simple.</p>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <section class="aboutchannel" id="aboutchannel">
+        <div class="section-content reverse">
+             <img class="section-image" src="images/techova.png" alt="Techova channel logo">
+            <div class="text-content">
+                <h2 class="section-title" data-key="about_channel_title">About The Channel</h2>
+                <p data-key="about_channel_p">My channel, Techova (short for Technology Innovations), shares smart tips and tricks for mobile devices, quick coding templates in shorts, tutorials, and powerful AI tools to help everyone learn and create with technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contactme" id="contactme">
+        <h2 class="section-title" data-key="contact_me_title">Contact me</h2>
+        <p class="suggestion" data-key="contact_suggestion">
+            Have an idea for a video? Feel free to reach out!
+        </p>
+        <div class="email-contact">
+            <a href="mailto:technologyinnovations2025@gmail.com">
+                <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span class="email-text">technologyinnovations2025@gmail.com</span>
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© <span id="year"></span> Techova. All Rights Reserved.</p>
+</footer>
+
+<!-- Gemini Chat Modal -->
+<div id="gemini-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+        <button id="close-modal-btn" class="close-button">×</button>
+        <h3>Ask Gemini about the channel</h3>
+        <div id="chat-container" class="chat-container">
+            <!-- Chat messages will appear here -->
+        </div>
+        <form id="chat-form" class="chat-form">
+            <input type="text" id="chat-input" placeholder="e.g., How do I make a cool button?" required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
